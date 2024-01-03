@@ -1,6 +1,8 @@
 # adhoc_slcsp
 Ad Hoc's Slcsp Homework Problem
-https://homework.adhoc.team/slcsp/
+
+Found here: https://homework.adhoc.team/slcsp/
+Prompt also in 'problem_statment.md'
 
 Step 1: organize plans.csv into 'rates' dict
 - iterate over file, only storing rows with 'Silver' plans
