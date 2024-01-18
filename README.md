@@ -5,7 +5,7 @@ Found here: https://homework.adhoc.team/slcsp/
 
 Prompt also in 'problem_statment.md'
 
-'silver_plans_sorted.csv' allows for easy spot-checking of results.
+'supplemental/silver_plans_sorted.csv' allows for easy spot-checking of results.
 
 ### Step 1: organize plans.csv into 'rates' dict
 - iterate over file, only storing rows with 'Silver' plans

@@ -1,0 +1,14 @@
+Script to populate slcsp costs is found in 'slcsp.py'
+
+Script requires 3 given .csv files in the same directory:
+- slcsp.csv
+- plans.csv
+- zips.csv
+
+If all 3 csv files are present, then no arguments are necessary for the script,
+simply run by calling 'python slcsp.py' or 'python3 slcsp.py', depending on local
+python environment setup.  No python packages are needed to run the script besides
+built-in modules (although some of the files in 'supplemental' folder require
+jupyter and pandas).
+
+Additional notes in README.md, task description in 'problem_statement.md'.

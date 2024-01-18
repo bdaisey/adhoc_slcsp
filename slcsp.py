@@ -1,5 +1,6 @@
 from collections import defaultdict
 import csv
+import sys
 
 # organize plans.csv by state and rate area with corresponding plan costs
 # rates['<state> <rate area>'] = [<cost1>, <cost2>, ...]
@@ -24,16 +25,17 @@ with open('zips.csv') as csvfile:
     for row in zipreader:
         zips_areas[row[0]].append(f'{row[1]} {row[4]}')
 
-# iterate list of target zipcodes
+# iterate list of target zipcodes, adding slcsp values where found
+results = []
 with open('slcsp.csv') as csvfile:
     slcspreader = csv.reader(csvfile)
     header_row = next(slcspreader)
-    print(f'{header_row[0]},{header_row[1]}')
+    results.append([header_row[0],header_row[1]])
 
     for row in slcspreader:
         zipcode = row[0]
-        target_state_area = zips_areas[zipcode]
         slcsp_result = ''
+        target_state_area = zips_areas[zipcode]
         # check that the zipcode only contains ONE rate area
         if len(set(target_state_area)) == 1:
             target_in_rates = target_state_area[0]
@@ -42,4 +44,8 @@ with open('slcsp.csv') as csvfile:
             # check that there are at least 2 remaining plan costs
             if len(plan_costs) > 1:
                 slcsp_result = format(plan_costs[1], '.2f')
-        print(f'{zipcode},{slcsp_result}')
+        results.append([zipcode, slcsp_result])
+
+# write results to stdout in csv format matching input 'slcsp.csv'
+slcspwriter = csv.writer(sys.stdout)
+slcspwriter.writerows(results)
